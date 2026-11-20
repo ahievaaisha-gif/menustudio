@@ -10,858 +10,353 @@
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
-
-:root {
-  --bg: #0b0b0b;
-  --surface: #141414;
-  --gold: #c9a66b;
-  --white: #f6f3ed;
-  --muted: #99958e;
-  --border: rgba(201,166,107,.2);
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--white);
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.6;
-}
-
-a { color: inherit; text-decoration: none; }
-
-button { font: inherit; cursor: pointer; }
-
-.container {
-  width: min(1160px, 90%);
-  margin: auto;
-}
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(11,11,11,.94);
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid var(--border);
-}
-
-nav {
-  min-height: 76px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 27px;
-  letter-spacing: -1px;
-}
-
-.logo span { color: var(--gold); }
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 27px;
-  font-size: 13px;
-  color: #c3c0ba;
-}
-
-.nav-links a:hover { color: var(--gold); }
-
-.languages {
-  display: flex;
-  gap: 5px;
-}
-
-.languages button {
-  background: transparent;
-  border: 1px solid transparent;
-  color: var(--muted);
-  padding: 6px 8px;
-  font-size: 11px;
-}
-
-.languages button.active {
-  color: var(--gold);
-  border-color: var(--border);
-}
-
-.hero {
-  min-height: 680px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid var(--border);
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 550px;
-  height: 550px;
-  right: -120px;
-  top: 40px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(201,166,107,.14), transparent 70%);
-}
-
-.hero-content {
-  position: relative;
-  max-width: 760px;
-  padding: 100px 0;
-}
-
-.eyebrow {
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 11px;
-  font-weight: 600;
-  margin-bottom: 25px;
-}
-
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 500;
-  line-height: 1.15;
-}
-
-h1 {
-  font-size: clamp(48px, 7vw, 86px);
-  letter-spacing: -2px;
-  margin-bottom: 25px;
-}
-
-h1 span, .gold { color: var(--gold); }
-
-.hero p {
-  max-width: 530px;
-  color: var(--muted);
-  font-size: 16px;
-  margin-bottom: 35px;
-}
-
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 13px;
-}
-
-.btn {
-  padding: 14px 24px;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: .25s;
-  display: inline-block;
-}
-
-.btn-gold {
-  background: var(--gold);
-  color: #101010;
-  border: 1px solid var(--gold);
-}
-
-.btn-gold:hover {
-  background: #e0c28f;
-}
-
-.btn-outline {
-  border: 1px solid var(--border);
-  color: var(--white);
-}
-
-.btn-outline:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-}
-
-section { padding: 105px 0; }
-
-.section-head {
-  margin-bottom: 48px;
-  max-width: 620px;
-}
-
-.section-head h2 {
-  font-size: clamp(35px, 5vw, 52px);
-  margin-bottom: 15px;
-}
-
-.section-head p {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-.service-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 35px;
-  transition: .3s;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--gold);
-}
-
-.service-number {
-  color: var(--gold);
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-
-.service-card h3 {
-  font-size: 27px;
-  margin: 18px 0 12px;
-}
-
-.service-card p {
-  color: var(--muted);
-  font-size: 13px;
-  min-height: 48px;
-}
-
-.price {
-  margin-top: 25px;
-  color: var(--gold);
-  font-size: 25px;
-  font-family: 'Playfair Display', serif;
-}
-
-.price small {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.portfolio {
-  background: #101010;
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.project {
-  border: 1px solid var(--border);
-  background: var(--surface);
-  overflow: hidden;
-}
-
-.project-art {
-  height: 260px;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(circle at 50% 45%, #423421, #17130f 70%);
-  padding: 25px;
-}
-
-.project-art.website {
-  background: linear-gradient(135deg, #202020, #393126);
-}
-
-.project-art.social {
-  background: linear-gradient(135deg, #34271e, #161616);
-}
-
-.project-art.brand {
-  background: linear-gradient(135deg, #272727, #151515);
-}
-
-.mockup {
-  width: 75%;
-  max-width: 300px;
-  padding: 25px;
-  text-align: center;
-  background: #111;
-  border: 1px solid #94754b;
-  box-shadow: 0 15px 40px #0008;
-}
-
-.mockup h3 {
-  font-size: 27px;
-  color: var(--gold);
-}
-
-.mockup p {
-  color: #bbb;
-  font-size: 10px;
-  margin-top: 10px;
-}
-
-.project-info { padding: 22px; }
-
-.project-info h3 { font-size: 21px; margin-bottom: 7px; }
-
-.project-info p {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.demo-label {
-  display: inline-block;
-  margin-top: 12px;
-  color: var(--gold);
-  font-size: 10px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-}
-
-.price-card {
-  padding: 30px 25px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-}
-
-.price-card.featured {
-  border-color: var(--gold);
-  background: #1b1813;
-}
-
-.price-card h3 { font-size: 25px; }
-
-.price-card .price {
-  font-size: 36px;
-  margin: 18px 0;
-}
-
-.price-card ul {
-  list-style: none;
-  color: var(--muted);
-  font-size: 12px;
-  margin: 20px 0;
-}
-
-.price-card li { margin: 12px 0; }
-
-.price-card li::before {
-  content: "✦";
-  color: var(--gold);
-  margin-right: 9px;
-}
-
-.about-box {
-  border: 1px solid var(--border);
-  padding: 55px;
-  background: linear-gradient(120deg, #171717, #100e0b);
-}
-
-.about-box p {
-  color: var(--muted);
-  max-width: 700px;
-  margin-top: 20px;
-}
-
-.contact {
-  background: #101010;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-}
-
-.contact-details {
-  display: grid;
-  gap: 22px;
-  margin-top: 30px;
-}
-
-.contact-item small {
-  display: block;
-  color: var(--gold);
-  letter-spacing: 2px;
-  font-size: 10px;
-  text-transform: uppercase;
-}
-
-.contact-item p {
-  color: var(--muted);
-  font-size: 14px;
-  margin-top: 4px;
-}
-
-.contact-form {
-  display: grid;
-  gap: 13px;
-}
-
-.contact-form input, .contact-form select,
-.contact-form textarea {
-  width: 100%;
-  padding: 15px;
-  background: #191919;
-  border: 1px solid var(--border);
-  color: white;
-  font: inherit;
-  font-size: 13px;
-  outline: none;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--gold);
-}
-
-.contact-form textarea {
-  min-height: 120px;
-  resize: vertical;
-}
-
-footer {
-  padding: 35px 0;
-  border-top: 1px solid var(--border);
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-footer p {
-  color: var(--muted);
-  font-size: 11px;
-}
-
-@media(max-width: 760px) {
-  .nav-links { display: none; }
-  .hero { min-height: 580px; }
-  .services-grid, .portfolio-grid,
-  .pricing-grid, .contact-grid {
-    grid-template-columns: 1fr;
-  }
-  section { padding: 75px 0; }
-  .about-box { padding: 30px 23px; }
-  .project-art { height: 220px; }
+:root{--bg:#0b0b0b;--surface:#141414;--gold:#c9a66b;--white:#f6f3ed;--muted:#99958e;--border:rgba(201,166,107,.2)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.container{width:min(1160px,90%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(11,11,11,.94);backdrop-filter:blur(15px);border-bottom:1px solid var(--border)}
+nav{min-height:76px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.logo{font-family:'Playfair Display',serif;font-size:27px;letter-spacing:-1px}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:27px;font-size:13px;color:#c3c0ba}
+.nav-links a:hover{color:var(--gold)}
+.languages{display:flex;gap:5px}
+.languages button{background:transparent;border:1px solid transparent;color:var(--muted);padding:6px 8px;font-size:11px}
+.languages button.active{color:var(--gold);border-color:var(--border)}
+.hero{min-height:680px;display:flex;align-items:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero::before{content:"";position:absolute;width:550px;height:550px;right:-120px;top:40px;border-radius:50%;background:radial-gradient(circle,rgba(201,166,107,.14),transparent 70%)}
+.hero-content{position:relative;max-width:760px;padding:100px 0}
+.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:4px;font-size:11px;font-weight:600;margin-bottom:25px}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;line-height:1.15}
+h1{font-size:clamp(48px,7vw,86px);letter-spacing:-2px;margin-bottom:25px}
+h1 span,.gold{color:var(--gold)}
+.hero p{max-width:530px;color:var(--muted);font-size:16px;margin-bottom:35px}
+.buttons{display:flex;flex-wrap:wrap;gap:13px}
+.btn{padding:14px 24px;font-size:12px;letter-spacing:1px;text-transform:uppercase;transition:.25s;display:inline-block}
+.btn-gold{background:var(--gold);color:#101010;border:1px solid var(--gold)}
+.btn-gold:hover{background:#e0c28f}
+.btn-outline{border:1px solid var(--border);color:var(--white)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+section{padding:105px 0}
+.section-head{margin-bottom:48px;max-width:620px}
+.section-head h2{font-size:clamp(35px,5vw,52px);margin-bottom:15px}
+.section-head p{color:var(--muted);font-size:14px}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.service-card{background:var(--surface);border:1px solid var(--border);padding:35px;transition:.3s}
+.service-card:hover{transform:translateY(-5px);border-color:var(--gold)}
+.service-number{color:var(--gold);font-size:12px;letter-spacing:2px}
+.service-card h3{font-size:27px;margin:18px 0 12px}
+.service-card p{color:var(--muted);font-size:13px;min-height:48px}
+.price{margin-top:25px;color:var(--gold);font-size:25px;font-family:'Playfair Display',serif}
+.price small{font-family:'DM Sans',sans-serif;font-size:11px;color:var(--muted)}
+.portfolio{background:#101010}
+.portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.project{border:1px solid var(--border);background:var(--surface);overflow:hidden}
+.project-art{height:260px;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,#423421,#17130f 70%);padding:25px}
+.project-art.website{background:linear-gradient(135deg,#202020,#393126)}
+.project-art.social{background:linear-gradient(135deg,#34271e,#161616)}
+.project-art.brand{background:linear-gradient(135deg,#272727,#151515)}
+.mockup{width:75%;max-width:300px;padding:25px;text-align:center;background:#111;border:1px solid #94754b;box-shadow:0 15px 40px #0008}
+.mockup h3{font-size:27px;color:var(--gold)}
+.mockup p{color:#bbb;font-size:10px;margin-top:10px}
+.project-info{padding:22px}
+.project-info h3{font-size:21px;margin-bottom:7px}
+.project-info p{color:var(--muted);font-size:12px}
+.demo-label{display:inline-block;margin-top:12px;color:var(--gold);font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.price-card{padding:30px 25px;background:var(--surface);border:1px solid var(--border)}
+.price-card.featured{border-color:var(--gold);background:#1b1813}
+.price-card h3{font-size:25px}
+.price-card .price{font-size:36px;margin:18px 0}
+.price-card ul{list-style:none;color:var(--muted);font-size:12px;margin:20px 0}
+.price-card li{margin:12px 0}
+.price-card li::before{content:"✦";color:var(--gold);margin-right:9px}
+.about-box{border:1px solid var(--border);padding:55px;background:linear-gradient(120deg,#171717,#100e0b)}
+.about-box p{color:var(--muted);max-width:700px;margin-top:20px}
+.contact{background:#101010}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.contact-details{display:grid;gap:22px;margin-top:30px}
+.contact-item small{display:block;color:var(--gold);letter-spacing:2px;font-size:10px;text-transform:uppercase}
+.contact-item p{color:var(--muted);font-size:14px;margin-top:4px}
+.contact-email{color:var(--white);transition:.2s}
+.contact-email:hover{color:var(--gold)}
+.contact-form{display:grid;gap:13px}
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:15px;background:#191919;border:1px solid var(--border);color:white;font:inherit;font-size:13px;outline:none}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:var(--gold)}
+.contact-form textarea{min-height:120px;resize:vertical}
+footer{padding:35px 0;border-top:1px solid var(--border)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+footer p{color:var(--muted);font-size:11px}
+@media(max-width:760px){
+.nav-links{display:none}
+.hero{min-height:580px}
+.services-grid,.portfolio-grid,.pricing-grid,.contact-grid{grid-template-columns:1fr}
+section{padding:75px 0}
+.about-box{padding:30px 23px}
+.project-art{height:220px}
 }
 </style>
 </head>
-
 <body>
 
 <header>
-  <div class="container">
-    <nav>
-      <a class="logo" href="#home">Menu<span>Studio.</span></a>
-
-      <div class="nav-links">
-        <a href="#services" data-i="navServices">Teenused</a>
-        <a href="#portfolio" data-i="navPortfolio">Portfoolio</a>
-        <a href="#pricing" data-i="navPricing">Hinnad</a>
-        <a href="#about" data-i="navAbout">Meist</a>
-        <a href="#contact" data-i="navContact">Kontakt</a>
-      </div>
-
-      <div class="languages">
-        <button class="active" data-lang="et">ET</button>
-        <button data-lang="ru">RU</button>
-        <button data-lang="en">EN</button>
-      </div>
-    </nav>
-  </div>
+<div class="container">
+<nav>
+<a class="logo" href="#home">Menu<span>Studio.</span></a>
+<div class="nav-links">
+<a href="#services" data-i="navServices">Teenused</a>
+<a href="#portfolio" data-i="navPortfolio">Portfoolio</a>
+<a href="#pricing" data-i="navPricing">Hinnad</a>
+<a href="#about" data-i="navAbout">Meist</a>
+<a href="#contact" data-i="navContact">Kontakt</a>
+</div>
+<div class="languages">
+<button class="active" data-lang="et">ET</button>
+<button data-lang="ru">RU</button>
+<button data-lang="en">EN</button>
+</div>
+</nav>
+</div>
 </header>
 
 <main>
-
 <section class="hero" id="home">
-  <div class="container">
-    <div class="hero-content">
-      <div class="eyebrow" data-i="eyebrow">DIGITAL DESIGN STUDIO · TALLINN</div>
-      <h1 data-i="heroTitle">Sinu ettevõte.<br><span>Meie digitaalne lahendus.</span></h1>
-      <p data-i="heroText">Loome kaasaegseid veebilehti, digitaalseid QR-menüüsid ja reklaammaterjale, mis aitavad sinu ettevõttel silma paista.</p>
-      <div class="buttons">
-        <a href="#services" class="btn btn-gold" data-i="heroButton">Vaata teenuseid</a>
-        <a href="#contact" class="btn btn-outline" data-i="contactButton">Võta ühendust</a>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="hero-content">
+<div class="eyebrow" data-i="eyebrow">DIGITAL DESIGN STUDIO · TALLINN</div>
+<h1 data-i="heroTitle">Sinu ettevõte.<br><span>Meie digitaalne lahendus.</span></h1>
+<p data-i="heroText">Loome kaasaegseid veebilehti, digitaalseid QR-menüüsid ja reklaammaterjale, mis aitavad sinu ettevõttel silma paista.</p>
+<div class="buttons">
+<a href="#services" class="btn btn-gold" data-i="heroButton">Vaata teenuseid</a>
+<a href="#contact" class="btn btn-outline" data-i="contactButton">Võta ühendust</a>
+</div>
+</div>
+</div>
 </section>
 
 <section id="services">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i="servicesEyebrow">WHAT WE DO</div>
-      <h2 data-i="servicesTitle">Meie teenused</h2>
-      <p data-i="servicesText">Digitaalsed lahendused, mis muudavad sinu ettevõtte esinduslikumaks.</p>
-    </div>
-
-    <div class="services-grid">
-
-      <article class="service-card">
-        <div class="service-number">01 / QR MENU</div>
-        <h3 data-i="s1Title">QR-menüüd</h3>
-        <p data-i="s1Text">Kaasaegsed digitaalsed menüüd restoranidele ja kohvikutele.</p>
-        <div class="price">39 € <small data-i="from">alates</small></div>
-      </article>
-
-      <article class="service-card">
-        <div class="service-number">02 / WEBSITES</div>
-        <h3 data-i="s2Title">Veebilehed</h3>
-        <p data-i="s2Text">Mobiilisõbralikud veebilehed sinu ettevõtte tutvustamiseks.</p>
-        <div class="price">79 € <small data-i="from">alates</small></div>
-      </article>
-
-      <article class="service-card">
-        <div class="service-number">03 / DESIGN</div>
-        <h3 data-i="s3Title">Reklaamkujundused</h3>
-        <p data-i="s3Text">Reklaampostitused, bännerid ja sotsiaalmeedia kujundused.</p>
-        <div class="price">19 € <small data-i="from">alates</small></div>
-      </article>
-
-      <article class="service-card">
-        <div class="service-number">04 / BRANDING</div>
-        <h3 data-i="s4Title">Bränding</h3>
-        <p data-i="s4Text">Logo, värvid ja ühtne visuaalne identiteet.</p>
-        <div class="price">39 € <small data-i="from">alates</small></div>
-      </article>
-
-    </div>
-  </div>
+<div class="container">
+<div class="section-head">
+<div class="eyebrow" data-i="servicesEyebrow">WHAT WE DO</div>
+<h2 data-i="servicesTitle">Meie teenused</h2>
+<p data-i="servicesText">Digitaalsed lahendused, mis muudavad sinu ettevõtte esinduslikumaks.</p>
+</div>
+<div class="services-grid">
+<article class="service-card"><div class="service-number">01 / QR MENU</div><h3 data-i="s1Title">QR-menüüd</h3><p data-i="s1Text">Kaasaegsed digitaalsed menüüd restoranidele ja kohvikutele.</p><div class="price">39 € <small data-i="from">alates</small></div></article>
+<article class="service-card"><div class="service-number">02 / WEBSITES</div><h3 data-i="s2Title">Veebilehed</h3><p data-i="s2Text">Mobiilisõbralikud veebilehed sinu ettevõtte tutvustamiseks.</p><div class="price">79 € <small data-i="from">alates</small></div></article>
+<article class="service-card"><div class="service-number">03 / DESIGN</div><h3 data-i="s3Title">Reklaamkujundused</h3><p data-i="s3Text">Reklaampostitused, bännerid ja sotsiaalmeedia kujundused.</p><div class="price">19 € <small data-i="from">alates</small></div></article>
+<article class="service-card"><div class="service-number">04 / BRANDING</div><h3 data-i="s4Title">Bränding</h3><p data-i="s4Text">Logo, värvid ja ühtne visuaalne identiteet.</p><div class="price">39 € <small data-i="from">alates</small></div></article>
+</div>
+</div>
 </section>
 
 <section class="portfolio" id="portfolio">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i="portfolioEyebrow">SELECTED CONCEPTS</div>
-      <h2 data-i="portfolioTitle">Meie portfoolio</h2>
-      <p data-i="portfolioText">Tutvu meie disainiideede ja näidistöödega.</p>
-    </div>
-
-    <div class="portfolio-grid">
-
-      <article class="project">
-        <div class="project-art">
-          <div class="mockup">
-            <div class="eyebrow">RESTAURANT</div>
-            <h3>La Tavola</h3>
-            <p>MENU · FOOD · EXPERIENCE</p>
-          </div>
-        </div>
-        <div class="project-info">
-          <h3 data-i="p1Title">Restorani QR-menüü</h3>
-          <p data-i="p1Text">Elegantne digitaalne menüü kontseptsioon.</p>
-          <span class="demo-label" data-i="demo">Demonstratsioonitöö</span>
-        </div>
-      </article>
-
-      <article class="project">
-        <div class="project-art website">
-          <div class="mockup">
-            <div class="eyebrow">COFFEE HOUSE</div>
-            <h3>MONO</h3>
-            <p>COFFEE · COMMUNITY · QUALITY</p>
-          </div>
-        </div>
-        <div class="project-info">
-          <h3 data-i="p2Title">Kohviku veebileht</h3>
-          <p data-i="p2Text">Minimalistliku kohviku veebilehe kontseptsioon.</p>
-          <span class="demo-label" data-i="demo">Demonstratsioonitöö</span>
-        </div>
-      </article>
-
-      <article class="project">
-        <div class="project-art social">
-          <div class="mockup">
-            <div class="eyebrow">SPECIAL OFFER</div>
-            <h3>NEW SEASON</h3>
-            <p>YOUR BRAND. YOUR STYLE.</p>
-          </div>
-        </div>
-        <div class="project-info">
-          <h3 data-i="p3Title">Reklaamkujundused</h3>
-          <p data-i="p3Text">Sotsiaalmeedia reklaami visuaalne kontseptsioon.</p>
-          <span class="demo-label" data-i="demo">Demonstratsioonitöö</span>
-        </div>
-      </article>
-
-      <article class="project">
-        <div class="project-art brand">
-          <div class="mockup">
-            <div class="eyebrow">BRAND IDENTITY</div>
-            <h3>ATELIER</h3>
-            <p>TIMELESS · SIMPLE · ELEGANT</p>
-          </div>
-        </div>
-        <div class="project-info">
-          <h3 data-i="p4Title">Brändi identiteet</h3>
-          <p data-i="p4Text">Logo ja visuaalse identiteedi kontseptsioon.</p>
-          <span class="demo-label" data-i="demo">Demonstratsioonitöö</span>
-        </div>
-      </article>
-
-    </div>
-  </div>
+<div class="container">
+<div class="section-head">
+<div class="eyebrow" data-i="portfolioEyebrow">SELECTED CONCEPTS</div>
+<h2 data-i="portfolioTitle">Meie portfoolio</h2>
+<p data-i="portfolioText">Tutvu meie disainiideede ja näidistöödega.</p>
+</div>
+<div class="portfolio-grid">
+<article class="project"><div class="project-art"><div class="mockup"><div class="eyebrow">RESTAURANT</div><h3>La Tavola</h3><p>MENU · FOOD · EXPERIENCE</p></div></div><div class="project-info"><h3 data-i="p1Title">Restorani QR-menüü</h3><p data-i="p1Text">Elegantne digitaalne menüü kontseptsioon.</p><span class="demo-label" data-i="demo">Demonstratsioonitöö</span></div></article>
+<article class="project"><div class="project-art website"><div class="mockup"><div class="eyebrow">COFFEE HOUSE</div><h3>MONO</h3><p>COFFEE · COMMUNITY · QUALITY</p></div></div><div class="project-info"><h3 data-i="p2Title">Kohviku veebileht</h3><p data-i="p2Text">Minimalistliku kohviku veebilehe kontseptsioon.</p><span class="demo-label" data-i="demo">Demonstratsioonitöö</span></div></article>
+<article class="project"><div class="project-art social"><div class="mockup"><div class="eyebrow">SPECIAL OFFER</div><h3>NEW SEASON</h3><p>YOUR BRAND. YOUR STYLE.</p></div></div><div class="project-info"><h3 data-i="p3Title">Reklaamkujundused</h3><p data-i="p3Text">Sotsiaalmeedia reklaami visuaalne kontseptsioon.</p><span class="demo-label" data-i="demo">Demonstratsioonitöö</span></div></article>
+<article class="project"><div class="project-art brand"><div class="mockup"><div class="eyebrow">BRAND IDENTITY</div><h3>ATELIER</h3><p>TIMELESS · SIMPLE · ELEGANT</p></div></div><div class="project-info"><h3 data-i="p4Title">Brändi identiteet</h3><p data-i="p4Text">Logo ja visuaalse identiteedi kontseptsioon.</p><span class="demo-label" data-i="demo">Demonstratsioonitöö</span></div></article>
+</div>
+</div>
 </section>
 
 <section id="pricing">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow" data-i="pricingEyebrow">SIMPLE PRICING</div>
-      <h2 data-i="pricingTitle">Vali sobiv lahendus</h2>
-      <p data-i="pricingText">Läbipaistvad alghinnad ja personaalsed pakkumised.</p>
-    </div>
-
-    <div class="pricing-grid">
-
-      <article class="price-card">
-        <h3>Starter</h3>
-        <div class="price">39 €</div>
-        <ul>
-          <li data-i="starter1">Digitaalne QR-menüü</li>
-          <li data-i="starter2">QR-kood</li>
-          <li data-i="starter3">Mobiilisõbralik kujundus</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline" data-i="choose">Vali pakett</a>
-      </article>
-
-      <article class="price-card featured">
-        <h3>Business</h3>
-        <div class="price">59 €</div>
-        <ul>
-          <li data-i="business1">QR-menüü</li>
-          <li data-i="business2">3 reklaamkujundust</li>
-          <li data-i="business3">Ühtne visuaalne stiil</li>
-        </ul>
-        <a href="#contact" class="btn btn-gold" data-i="choose">Vali pakett</a>
-      </article>
-
-      <article class="price-card">
-        <h3>Premium</h3>
-        <div class="price">109 €</div>
-        <ul>
-          <li data-i="premium1">QR-menüü</li>
-          <li data-i="premium2">Üheleheline veebileht</li>
-          <li data-i="premium3">Personaalne kujundus</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline" data-i="choose">Vali pakett</a>
-      </article>
-
-    </div>
-  </div>
+<div class="container">
+<div class="section-head">
+<div class="eyebrow" data-i="pricingEyebrow">SIMPLE PRICING</div>
+<h2 data-i="pricingTitle">Vali sobiv lahendus</h2>
+<p data-i="pricingText">Läbipaistvad alghinnad ja personaalsed pakkumised.</p>
+</div>
+<div class="pricing-grid">
+<article class="price-card"><h3>Starter</h3><div class="price">39 €</div><ul><li data-i="starter1">Digitaalne QR-menüü</li><li data-i="starter2">QR-kood</li><li data-i="starter3">Mobiilisõbralik kujundus</li></ul><a href="#contact" class="btn btn-outline" data-i="choose">Vali pakett</a></article>
+<article class="price-card featured"><h3>Business</h3><div class="price">59 €</div><ul><li data-i="business1">QR-menüü</li><li data-i="business2">3 reklaamkujundust</li><li data-i="business3">Ühtne visuaalne stiil</li></ul><a href="#contact" class="btn btn-gold" data-i="choose">Vali pakett</a></article>
+<article class="price-card"><h3>Premium</h3><div class="price">109 €</div><ul><li data-i="premium1">QR-menüü</li><li data-i="premium2">Üheleheline veebileht</li><li data-i="premium3">Personaalne kujundus</li></ul><a href="#contact" class="btn btn-outline" data-i="choose">Vali pakett</a></article>
+</div>
+</div>
 </section>
 
 <section id="about">
-  <div class="container">
-    <div class="about-box">
-      <div class="eyebrow" data-i="aboutEyebrow">ABOUT MENUSTUDIO</div>
-      <h2 data-i="aboutTitle">Väikesed detailid.<br><span class="gold">Suur erinevus.</span></h2>
-      <p data-i="aboutText">MenuStudio keskendub väikeste ettevõtete digitaalsele esindatusele. Meie eesmärk on luua lihtsaid, kaasaegseid ja personaalseid lahendusi, mis sobivad iga ettevõtte stiiliga.</p>
-    </div>
-  </div>
+<div class="container">
+<div class="about-box">
+<div class="eyebrow" data-i="aboutEyebrow">ABOUT MENUSTUDIO</div>
+<h2 data-i="aboutTitle">Väikesed detailid.<br><span class="gold">Suur erinevus.</span></h2>
+<p data-i="aboutText">MenuStudio keskendub väikeste ettevõtete digitaalsele esindatusele. Meie eesmärk on luua lihtsaid, kaasaegseid ja personaalseid lahendusi, mis sobivad iga ettevõtte stiiliga.</p>
+</div>
+</div>
 </section>
 
 <section class="contact" id="contact">
-  <div class="container">
-    <div class="contact-grid">
-
-      <div>
-        <div class="eyebrow" data-i="contactEyebrow">LET'S TALK</div>
-        <h2 data-i="contactTitle">Loome midagi head?</h2>
-        <p style="color:var(--muted); margin-top:18px; font-size:14px" data-i="contactText">Kirjuta meile ja räägime sinu ettevõtte ideedest.</p>
-
-        <div class="contact-details">
-          <div class="contact-item">
-            <small data-i="phoneLabel">Telefon</small>
-            <p>[YOUR PHONE]</p>
-          </div>
-          <div class="contact-item">
-            <small>Email</small>
-            <p>[YOUR EMAIL]</p>
-          </div>
-          <div class="contact-item">
-            <small data-i="locationLabel">Asukoht</small>
-            <p>Tallinn, Estonia</p>
-          </div>
-        </div>
-      </div>
-
-      <form class="contact-form" id="contactForm">
-        <input type="text" id="name" required placeholder="Name / Nimi">
-        <input type="email" id="email" required placeholder="Email">
-        <select id="service" required>
-          <option value="" data-i="selectService">Vali teenus</option>
-          <option>QR Menu</option>
-          <option>Website</option>
-          <option>Advertising Design</option>
-          <option>Branding</option>
-          <option>Other</option>
-        </select>
-        <textarea id="message" placeholder="Your message / Sinu sõnum"></textarea>
-        <button type="submit" class="btn btn-gold" data-i="sendButton">Saada päring</button>
-        <p id="formNote" style="font-size:11px;color:var(--muted)" data-i="formNote">Enne avaldamist tuleb lisada toimiv e-posti aadress.</p>
-      </form>
-
-    </div>
-  </div>
+<div class="container">
+<div class="contact-grid">
+<div>
+<div class="eyebrow" data-i="contactEyebrow">LET'S TALK</div>
+<h2 data-i="contactTitle">Loome midagi head?</h2>
+<p style="color:var(--muted);margin-top:18px;font-size:14px" data-i="contactText">Kirjuta meile ja räägime sinu ettevõtte ideedest.</p>
+<div class="contact-details">
+<div class="contact-item"><small data-i="phoneLabel">Telefon</small><p data-i="phoneUnavailable">Telefoninumber kokkuleppel</p></div>
+<div class="contact-item"><small>Email</small><p><a class="contact-email" href="mailto:ahievaaisha@gmail.com">ahievaaisha@gmail.com</a></p></div>
+<div class="contact-item"><small data-i="locationLabel">Asukoht</small><p>Tallinn, Estonia</p></div>
+</div>
+</div>
+<form class="contact-form" id="contactForm">
+<input type="text" id="name" required placeholder="Name / Nimi">
+<input type="email" id="email" required placeholder="Email">
+<select id="service" required>
+<option value="" data-i="selectService">Vali teenus</option>
+<option value="QR Menu">QR Menu</option>
+<option value="Website">Website</option>
+<option value="Advertising Design">Advertising Design</option>
+<option value="Branding">Branding</option>
+<option value="Other">Other</option>
+</select>
+<textarea id="message" placeholder="Your message / Sinu sõnum"></textarea>
+<button type="submit" class="btn btn-gold" data-i="sendButton">Saada päring</button>
+<p id="formNote" style="font-size:11px;color:var(--muted)" data-i="formNote">Vormi saatmisel avaneb sinu e-posti rakendus.</p>
+</form>
+</div>
+</div>
 </section>
-
 </main>
 
 <footer>
-  <div class="container footer-inner">
-    <a class="logo" href="#home">Menu<span>Studio.</span></a>
-    <p>© 2026 MenuStudio. <span data-i="rights">Kõik õigused kaitstud.</span></p>
-    <p>TALLINN · ESTONIA</p>
-  </div>
+<div class="container footer-inner">
+<a class="logo" href="#home">Menu<span>Studio.</span></a>
+<p>© 2026 MenuStudio. <span data-i="rights">Kõik õigused kaitstud.</span></p>
+<p>TALLINN · ESTONIA</p>
+</div>
 </footer>
 
 <script>
 const translations = {
-et: {
+et:{
 navServices:"Teenused",navPortfolio:"Portfoolio",navPricing:"Hinnad",navAbout:"Meist",navContact:"Kontakt",
 eyebrow:"DIGITAL DESIGN STUDIO · TALLINN",
 heroTitle:'Sinu ettevõte.<br><span>Meie digitaalne lahendus.</span>',
 heroText:"Loome kaasaegseid veebilehti, digitaalseid QR-menüüsid ja reklaammaterjale, mis aitavad sinu ettevõttel silma paista.",
 heroButton:"Vaata teenuseid",contactButton:"Võta ühendust",
-servicesEyebrow:"WHAT WE DO",servicesTitle:"Meie teenused",
-servicesText:"Digitaalsed lahendused, mis muudavad sinu ettevõtte esinduslikumaks.",
+servicesEyebrow:"WHAT WE DO",servicesTitle:"Meie teenused",servicesText:"Digitaalsed lahendused, mis muudavad sinu ettevõtte esinduslikumaks.",
 s1Title:"QR-menüüd",s1Text:"Kaasaegsed digitaalsed menüüd restoranidele ja kohvikutele.",
 s2Title:"Veebilehed",s2Text:"Mobiilisõbralikud veebilehed sinu ettevõtte tutvustamiseks.",
 s3Title:"Reklaamkujundused",s3Text:"Reklaampostitused, bännerid ja sotsiaalmeedia kujundused.",
 s4Title:"Bränding",s4Text:"Logo, värvid ja ühtne visuaalne identiteet.",from:"alates",
-portfolioEyebrow:"SELECTED CONCEPTS",portfolioTitle:"Meie portfoolio",
-portfolioText:"Tutvu meie disainiideede ja näidistöödega.",
+portfolioEyebrow:"SELECTED CONCEPTS",portfolioTitle:"Meie portfoolio",portfolioText:"Tutvu meie disainiideede ja näidistöödega.",
 p1Title:"Restorani QR-menüü",p1Text:"Elegantne digitaalne menüü kontseptsioon.",
 p2Title:"Kohviku veebileht",p2Text:"Minimalistliku kohviku veebilehe kontseptsioon.",
 p3Title:"Reklaamkujundused",p3Text:"Sotsiaalmeedia reklaami visuaalne kontseptsioon.",
-p4Title:"Brändi identiteet",p4Text:"Logo ja visuaalse identiteedi kontseptsioon.",
-demo:"Demonstratsioonitöö",
-pricingEyebrow:"SIMPLE PRICING",pricingTitle:"Vali sobiv lahendus",
-pricingText:"Läbipaistvad alghinnad ja personaalsed pakkumised.",
+p4Title:"Brändi identiteet",p4Text:"Logo ja visuaalse identiteedi kontseptsioon.",demo:"Demonstratsioonitöö",
+pricingEyebrow:"SIMPLE PRICING",pricingTitle:"Vali sobiv lahendus",pricingText:"Läbipaistvad alghinnad ja personaalsed pakkumised.",
 starter1:"Digitaalne QR-menüü",starter2:"QR-kood",starter3:"Mobiilisõbralik kujundus",
 business1:"QR-menüü",business2:"3 reklaamkujundust",business3:"Ühtne visuaalne stiil",
 premium1:"QR-menüü",premium2:"Üheleheline veebileht",premium3:"Personaalne kujundus",
 choose:"Vali pakett",aboutEyebrow:"ABOUT MENUSTUDIO",
 aboutTitle:'Väikesed detailid.<br><span class="gold">Suur erinevus.</span>',
 aboutText:"MenuStudio keskendub väikeste ettevõtete digitaalsele esindatusele. Meie eesmärk on luua lihtsaid, kaasaegseid ja personaalseid lahendusi, mis sobivad iga ettevõtte stiiliga.",
-contactEyebrow:"LET'S TALK",contactTitle:"Loome midagi head?",
-contactText:"Kirjuta meile ja räägime sinu ettevõtte ideedest.",
-phoneLabel:"Telefon",locationLabel:"Asukoht",
+contactEyebrow:"LET'S TALK",contactTitle:"Loome midagi head?",contactText:"Kirjuta meile ja räägime sinu ettevõtte ideedest.",
+phoneLabel:"Telefon",phoneUnavailable:"Telefoninumber kokkuleppel",locationLabel:"Asukoht",
 selectService:"Vali teenus",sendButton:"Saada päring",
-formNote:"Enne avaldamist tuleb lisada toimiv e-posti aadress.",
-rights:"Kõik õigused kaitstud."
+formNote:"Vormi saatmisel avaneb sinu e-posti rakendus.",rights:"Kõik õigused kaitstud."
 },
-ru: {
+ru:{
 navServices:"Услуги",navPortfolio:"Портфолио",navPricing:"Цены",navAbout:"О нас",navContact:"Контакты",
 eyebrow:"DIGITAL DESIGN STUDIO · ТАЛЛИН",
 heroTitle:'Твой бизнес.<br><span>Наше цифровое решение.</span>',
 heroText:"Создаём современные сайты, цифровые QR-меню и рекламные материалы, которые помогают твоему бизнесу выделяться.",
 heroButton:"Наши услуги",contactButton:"Связаться",
-servicesEyebrow:"ЧТО МЫ ДЕЛАЕМ",servicesTitle:"Наши услуги",
-servicesText:"Цифровые решения, которые помогают бизнесу выглядеть профессиональнее.",
+servicesEyebrow:"ЧТО МЫ ДЕЛАЕМ",servicesTitle:"Наши услуги",servicesText:"Цифровые решения, которые помогают бизнесу выглядеть профессиональнее.",
 s1Title:"QR-меню",s1Text:"Современные цифровые меню для кафе и ресторанов.",
 s2Title:"Создание сайтов",s2Text:"Современные сайты для представления твоего бизнеса.",
 s3Title:"Рекламный дизайн",s3Text:"Рекламные посты, баннеры и оформление соцсетей.",
 s4Title:"Брендинг",s4Text:"Логотип, цвета и единый визуальный стиль.",from:"от",
-portfolioEyebrow:"НАШИ КОНЦЕПТЫ",portfolioTitle:"Портфолио",
-portfolioText:"Посмотри наши идеи дизайна и демонстрационные работы.",
+portfolioEyebrow:"НАШИ КОНЦЕПТЫ",portfolioTitle:"Портфолио",portfolioText:"Посмотри наши идеи дизайна и демонстрационные работы.",
 p1Title:"QR-меню ресторана",p1Text:"Концепция элегантного цифрового меню.",
 p2Title:"Сайт кофейни",p2Text:"Концепция минималистичного сайта кофейни.",
 p3Title:"Рекламный дизайн",p3Text:"Концепция рекламного оформления соцсетей.",
-p4Title:"Фирменный стиль",p4Text:"Концепция логотипа и визуального стиля.",
-demo:"Демонстрационный проект",
-pricingEyebrow:"ПРОЗРАЧНЫЕ ЦЕНЫ",pricingTitle:"Выбери своё решение",
-pricingText:"Стартовые цены и индивидуальные предложения.",
+p4Title:"Фирменный стиль",p4Text:"Концепция логотипа и визуального стиля.",demo:"Демонстрационный проект",
+pricingEyebrow:"ПРОЗРАЧНЫЕ ЦЕНЫ",pricingTitle:"Выбери своё решение",pricingText:"Стартовые цены и индивидуальные предложения.",
 starter1:"Цифровое QR-меню",starter2:"QR-код",starter3:"Мобильный дизайн",
 business1:"QR-меню",business2:"3 рекламных дизайна",business3:"Единый визуальный стиль",
 premium1:"QR-меню",premium2:"Одностраничный сайт",premium3:"Индивидуальный дизайн",
 choose:"Выбрать пакет",aboutEyebrow:"О MENUSTUDIO",
 aboutTitle:'Маленькие детали.<br><span class="gold">Большая разница.</span>',
 aboutText:"MenuStudio помогает небольшим компаниям с цифровым оформлением. Наша цель — создавать простые, современные и индивидуальные решения в стиле каждого бизнеса.",
-contactEyebrow:"ДАВАЙТЕ ОБСУДИМ",contactTitle:"Создадим что-нибудь классное?",
-contactText:"Напиши нам, и мы обсудим идеи для твоего бизнеса.",
-phoneLabel:"Телефон",locationLabel:"Местоположение",
+contactEyebrow:"ДАВАЙТЕ ОБСУДИМ",contactTitle:"Создадим что-нибудь классное?",contactText:"Напиши нам, и мы обсудим идеи для твоего бизнеса.",
+phoneLabel:"Телефон",phoneUnavailable:"Номер телефона предоставляется по договорённости",locationLabel:"Местоположение",
 selectService:"Выбери услугу",sendButton:"Отправить заявку",
-formNote:"Перед публикацией необходимо добавить действующий адрес электронной почты.",
-rights:"Все права защищены."
+formNote:"При отправке формы откроется твоя почтовая программа.",rights:"Все права защищены."
 },
-en: {
+en:{
 navServices:"Services",navPortfolio:"Portfolio",navPricing:"Pricing",navAbout:"About",navContact:"Contact",
 eyebrow:"DIGITAL DESIGN STUDIO · TALLINN",
 heroTitle:'Your business.<br><span>Our digital solution.</span>',
 heroText:"We create modern websites, digital QR menus and advertising materials that help your business stand out.",
 heroButton:"Explore services",contactButton:"Get in touch",
-servicesEyebrow:"WHAT WE DO",servicesTitle:"Our services",
-servicesText:"Digital solutions designed to make your business stand out.",
+servicesEyebrow:"WHAT WE DO",servicesTitle:"Our services",servicesText:"Digital solutions designed to make your business stand out.",
 s1Title:"QR Menus",s1Text:"Modern digital menus for cafés and restaurants.",
 s2Title:"Website Development",s2Text:"Mobile-friendly websites to showcase your business.",
 s3Title:"Advertising Design",s3Text:"Promotional posts, banners and social media graphics.",
 s4Title:"Branding",s4Text:"Logos, colours and a consistent visual identity.",from:"from",
-portfolioEyebrow:"SELECTED CONCEPTS",portfolioTitle:"Our portfolio",
-portfolioText:"Explore our design concepts and sample projects.",
+portfolioEyebrow:"SELECTED CONCEPTS",portfolioTitle:"Our portfolio",portfolioText:"Explore our design concepts and sample projects.",
 p1Title:"Restaurant QR Menu",p1Text:"An elegant digital menu concept.",
 p2Title:"Coffee Shop Website",p2Text:"A minimalist coffee shop website concept.",
 p3Title:"Advertising Design",p3Text:"A social media advertising concept.",
-p4Title:"Brand Identity",p4Text:"A logo and visual identity concept.",
-demo:"Demonstration project",
-pricingEyebrow:"SIMPLE PRICING",pricingTitle:"Choose your solution",
-pricingText:"Transparent starting prices and personalised offers.",
+p4Title:"Brand Identity",p4Text:"A logo and visual identity concept.",demo:"Demonstration project",
+pricingEyebrow:"SIMPLE PRICING",pricingTitle:"Choose your solution",pricingText:"Transparent starting prices and personalised offers.",
 starter1:"Digital QR menu",starter2:"QR code",starter3:"Mobile-friendly design",
 business1:"QR menu",business2:"3 advertising designs",business3:"Consistent visual style",
 premium1:"QR menu",premium2:"One-page website",premium3:"Custom design",
 choose:"Choose package",aboutEyebrow:"ABOUT MENUSTUDIO",
 aboutTitle:'Small details.<br><span class="gold">Big difference.</span>',
 aboutText:"MenuStudio focuses on helping small businesses improve their digital presence. Our goal is to create simple, modern and personalised solutions for every business.",
-contactEyebrow:"LET'S TALK",contactTitle:"Let's create something great.",
-contactText:"Get in touch and tell us about your business ideas.",
-phoneLabel:"Phone",locationLabel:"Location",
+contactEyebrow:"LET'S TALK",contactTitle:"Let's create something great.",contactText:"Get in touch and tell us about your business ideas.",
+phoneLabel:"Phone",phoneUnavailable:"Phone number available upon request",locationLabel:"Location",
 selectService:"Select a service",sendButton:"Send enquiry",
-formNote:"A working email address must be added before publishing.",
-rights:"All rights reserved."
+formNote:"Submitting the form will open your email application.",rights:"All rights reserved."
 }
 };
 
-function setLanguage(lang) {
-  document.documentElement.lang = lang;
-  document.querySelectorAll("[data-i]").forEach(el => {
-    const key = el.dataset.i;
-    if (translations[lang][key]) {
-      el.innerHTML = translations[lang][key];
-    }
-  });
-  document.querySelectorAll("[data-lang]").forEach(btn => {
-    btn.classList.toggle("active", btn.dataset.lang === lang);
-  });
+function setLanguage(lang){
+document.documentElement.lang=lang;
+document.querySelectorAll("[data-i]").forEach(el=>{
+const key=el.dataset.i;
+if(translations[lang][key])el.innerHTML=translations[lang][key];
+});
+document.querySelectorAll("[data-lang]").forEach(btn=>{
+btn.classList.toggle("active",btn.dataset.lang===lang);
+});
 }
 
-document.querySelectorAll("[data-lang]").forEach(btn => {
-  btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+document.querySelectorAll("[data-lang]").forEach(btn=>{
+btn.addEventListener("click",()=>setLanguage(btn.dataset.lang));
 });
 
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  alert("Contact form is a demo. Please configure your email before accepting enquiries.");
+document.getElementById("contactForm").addEventListener("submit",function(e){
+e.preventDefault();
+const name=document.getElementById("name").value.trim();
+const sender=document.getElementById("email").value.trim();
+const service=document.getElementById("service").value;
+const message=document.getElementById("message").value.trim();
+
+const subject=encodeURIComponent("MenuStudio enquiry — "+service);
+const body=encodeURIComponent(
+"Name: "+name+"\n"+
+"Email: "+sender+"\n"+
+"Service: "+service+"\n\n"+
+"Message:\n"+message
+);
+
+window.location.href="mailto:ahievaaisha@gmail.com?subject="+subject+"&body="+body;
 });
 
 setLanguage("et");
 </script>
-
 </body>
 </html>
