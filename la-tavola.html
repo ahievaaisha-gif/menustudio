@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10100e">
+<title>La Tavola — Italian Restaurant Menu</title>
+<meta name="description" content="Explore the La Tavola Italian restaurant menu.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#10100e;
+  --panel:#191814;
+  --gold:#c9a66b;
+  --text:#f6f0e5;
+  --muted:#aaa397;
+  --line:rgba(201,166,107,.23);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1050px,90%);margin:auto}
+header{
+  border-bottom:1px solid var(--line);
+  padding:20px 0;
+  text-align:center;
+}
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  letter-spacing:3px;
+}
+.logo span{color:var(--gold)}
+.subtitle{
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:4px;
+  margin-top:4px;
+}
+.hero{
+  min-height:390px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+    url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600') center/cover;
+  padding:60px 20px;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(48px,8vw,78px);
+  font-weight:500;
+}
+.hero p{
+  color:#e2d8c8;
+  letter-spacing:3px;
+  font-size:11px;
+  margin-top:15px;
+  text-transform:uppercase;
+}
+.gold-line{
+  width:55px;
+  height:1px;
+  background:var(--gold);
+  margin:22px auto;
+}
+.intro{
+  text-align:center;
+  padding:55px 0 20px;
+}
+.intro p{
+  color:var(--muted);
+  font-size:13px;
+}
+.menu-nav{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:25px 0 45px;
+}
+.menu-nav a{
+  border:1px solid var(--line);
+  padding:9px 17px;
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:1px;
+  transition:.2s;
+}
+.menu-nav a:hover{
+  background:var(--gold);
+  color:#111;
+}
+.menu-section{padding:30px 0 65px}
+.section-title{text-align:center;margin-bottom:30px}
+.section-title h2{
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  font-weight:500;
+}
+.section-title p{
+  color:var(--muted);
+  font-size:11px;
+  letter-spacing:2px;
+  margin-top:7px;
+}
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+.menu-item{
+  display:flex;
+  gap:17px;
+  padding:15px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  align-items:center;
+}
+.menu-item img{
+  width:112px;
+  height:112px;
+  object-fit:cover;
+  flex-shrink:0;
+}
+.item-info{flex:1;min-width:0}
+.item-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:baseline;
+}
+.item-top h3{
+  font-family:'Playfair Display',serif;
+  font-size:18px;
+  font-weight:500;
+}
+.price{
+  color:var(--gold);
+  white-space:nowrap;
+  font-size:14px;
+}
+.item-info p{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:7px;
+  line-height:1.5;
+}
+.tag{
+  display:inline-block;
+  color:var(--gold);
+  font-size:9px;
+  letter-spacing:1px;
+  margin-top:8px;
+  text-transform:uppercase;
+}
+.notice{
+  text-align:center;
+  color:var(--muted);
+  font-size:10px;
+  padding:0 0 50px;
+}
+footer{
+  border-top:1px solid var(--line);
+  text-align:center;
+  padding:35px 15px;
+}
+footer h3{
+  font-family:'Playfair Display',serif;
+  color:var(--gold);
+  font-size:22px;
+  font-weight:500;
+}
+footer p{
+  color:var(--muted);
+  font-size:10px;
+  margin-top:8px;
+}
+.studio-link{
+  display:inline-block;
+  color:var(--gold);
+  margin-top:17px;
+  font-size:10px;
+  letter-spacing:1px;
+}
+@media(max-width:650px){
+  .menu-grid{grid-template-columns:1fr}
+  .menu-item img{width:95px;height:100px}
+  .item-top h3{font-size:16px}
+  .menu-section{padding-bottom:45px}
+}
+@media(max-width:370px){
+  .menu-item{gap:11px;padding:10px}
+  .menu-item img{width:82px;height:90px}
+  .item-top{flex-wrap:wrap}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">LA <span>TAVOLA</span></div>
+  <div class="subtitle">ITALIAN RESTAURANT · TALLINN</div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>La Tavola</h1>
+    <div class="gold-line"></div>
+    <p>A taste of Italy, made with love</p>
+  </div>
+</section>
+
+<main class="container">
+
+  <div class="intro">
+    <div class="section-title">
+      <h2>Our Menu</h2>
+      <div class="gold-line"></div>
+    </div>
+    <p>Fresh ingredients. Traditional recipes. Unforgettable taste.</p>
+  </div>
+
+  <nav class="menu-nav">
+    <a href="#starters">STARTERS</a>
+    <a href="#pasta">PASTA</a>
+    <a href="#pizza">PIZZA</a>
+    <a href="#desserts">DESSERTS</a>
+    <a href="#drinks">DRINKS</a>
+  </nav>
+
+  <section class="menu-section" id="starters">
+    <div class="section-title">
+      <h2>Antipasti</h2>
+      <p>THE PERFECT BEGINNING</p>
+    </div>
+    <div class="menu-grid">
+
+      <article class="menu-item">
+        <img src="https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=400" alt="Bruschetta">
+        <div class="item-info">
+          <div class="item-top"><h3>Bruschetta</h3><span class="price">€8</span></div>
+          <p>Toasted bread, fresh tomatoes, basil and olive oil.</p>
+          <span class="tag">Vegetarian</span>
+        </div>
+      </article>
+
+      <article class="menu-item">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400" alt="Italian salad">
+        <div class="item-info">
+          <div class="item-top"><h3>Caprese Salad</h3><span class="price">€10</span></div>
+          <p>Fresh mozzarella, tomatoes, basil and balsamic glaze.</p>
+          <span class="tag">Fresh choice</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="menu-section" id="pasta">
+    <div class="section-title">
+      <h2>La Pasta</h2>
+      <p>MADE WITH PASSION</p>
+    </div>
+    <div class="menu-grid">
+
+      <article class="menu-item">
+        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400" alt="Carbonara pasta">
+        <div class="item-info">
+          <div class="item-top"><h3>Carbonara</h3><span class="price">€16</span></div>
+          <p>Pasta, creamy egg sauce, parmesan and pancetta.</p>
+          <span class="tag">Chef's favourite</span>
+        </div>
+      </article>
+
+      <article class="menu-item">
+        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400" alt="Pesto pasta">
+        <div class="item-info">
+          <div class="item-top"><h3>Pesto Pasta</h3><span class="price">€15</span></div>
+          <p>Fresh basil pesto, parmesan and extra virgin olive oil.</p>
+          <span class="tag">Vegetarian</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="menu-section" id="pizza">
+    <div class="section-title">
+      <h2>La Pizza</h2>
+      <p>STRAIGHT FROM THE OVEN</p>
+    </div>
+    <div class="menu-grid">
+
+      <article class="menu-item">
+        <img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?w=400" alt="Margherita pizza">
+        <div class="item-info">
+          <div class="item-top"><h3>Margherita</h3><span class="price">€13</span></div>
+          <p>Tomato sauce, mozzarella, fresh basil.</p>
+          <span class="tag">Classic</span>
+        </div>
+      </article>
+
+      <article class="menu-item">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Pizza">
+        <div class="item-info">
+          <div class="item-top"><h3>Quattro Formaggi</h3><span class="price">€17</span></div>
+          <p>Mozzarella, gorgonzola, parmesan and ricotta.</p>
+          <span class="tag">Cheese lover</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="menu-section" id="desserts">
+    <div class="section-title">
+      <h2>Dolci</h2>
+      <p>A LITTLE SOMETHING SWEET</p>
+    </div>
+    <div class="menu-grid">
+
+      <article class="menu-item">
+        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400" alt="Tiramisu">
+        <div class="item-info">
+          <div class="item-top"><h3>Tiramisu</h3><span class="price">€8</span></div>
+          <p>Classic Italian dessert with mascarpone and coffee.</p>
+          <span class="tag">House favourite</span>
+        </div>
+      </article>
+
+      <article class="menu-item">
+        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400" alt="Panna cotta">
+        <div class="item-info">
+          <div class="item-top"><h3>Panna Cotta</h3><span class="price">€7</span></div>
+          <p>Silky vanilla cream with seasonal berry sauce.</p>
+          <span class="tag">Vegetarian</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="menu-section" id="drinks">
+    <div class="section-title">
+      <h2>Bevande</h2>
+      <p>REFRESH AND ENJOY</p>
+    </div>
+    <div class="menu-grid">
+
+      <article class="menu-item">
+        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765edfd4?w=400" alt="Lemonade">
+        <div class="item-info">
+          <div class="item-top"><h3>Homemade Lemonade</h3><span class="price">€5</span></div>
+          <p>Fresh lemon, mint and sparkling water.</p>
+        </div>
+      </article>
+
+      <article class="menu-item">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400" alt="Coffee">
+        <div class="item-info">
+          <div class="item-top"><h3>Italian Espresso</h3><span class="price">€3</span></div>
+          <p>Rich and aromatic Italian-style espresso.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <p class="notice">
+    DEMONSTRATION MENU · FICTIONAL RESTAURANT · SAMPLE PRICES
+  </p>
+
+</main>
+
+<footer>
+  <h3>La Tavola</h3>
+  <p>GOOD FOOD. GOOD COMPANY. LA DOLCE VITA.</p>
+  <a class="studio-link" href="index.html">DESIGNED BY MENUSTUDIO</a>
+  <p>© 2026 La Tavola · Demonstration project</p>
+</footer>
+
+</body>
+</html>
